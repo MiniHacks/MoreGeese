@@ -3,7 +3,6 @@ import { ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
-const { v4: uuidv4 } = require("uuid");
 
 const baseStyle = {
   flex: 1,
@@ -32,18 +31,25 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-const Upload = () => {
+const Upload = ({
+  onPageChange,
+  fileId,
+}: {
+  onPageChange: Function;
+  fileId: string;
+}) => {
   const [fileForUpload, selectFileForUpload] = useState<any>(null);
 
   const handleFileUpload = async () => {
     if (fileForUpload === null) {
       return;
     }
-    const fileId = uuidv4();
+
     const ext = fileForUpload.name.split(".").pop();
     const storageRef = ref(storage, `unprocessed/${fileId}.${ext}`);
 
     await uploadBytes(storageRef, fileForUpload);
+    onPageChange("loading");
   };
 
   const onDrop = useCallback((acceptedFiles) => {
