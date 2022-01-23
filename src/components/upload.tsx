@@ -87,7 +87,7 @@ const Upload = ({
     isDragActive,
   } = useDropzone({
     onDrop,
-    accept: "image/png",
+    accept: "image/*",
   });
 
   const style = useMemo(
