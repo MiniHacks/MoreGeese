@@ -44,6 +44,10 @@ h1 {
     padding: 40px;
 }
 
+.title {
+    padding-bottom: 10px;
+}
+
 .upload {
     padding: 0 25%;
 }
