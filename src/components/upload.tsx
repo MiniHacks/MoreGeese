@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { ref, uploadBytes } from "firebase/storage";
+import { connectStorageEmulator, ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
@@ -32,27 +32,32 @@ const rejectStyle = {
 };
 
 const Upload = () => {
-  const [fileForUpload, selectFileForUpload] = useState(null);
+  const [fileForUpload, selectFileForUpload] = useState<any>(null);
 
   const handleFileUpload = async () => {
-    console.log(fileForUpload);
     if (fileForUpload === null) {
       return;
     }
     const storageRef = ref(storage, "helloworld.png");
 
-    try {
-      const result = await uploadBytes(storageRef, fileForUpload);
-      console.log("Data!", result);
-    } catch (e) {
-      console.log("AHHHHHHHHHHH");
-      console.log("Error", e);
-    }
+    await uploadBytes(storageRef, fileForUpload);
   };
 
   const onDrop = useCallback((acceptedFiles) => {
     selectFileForUpload(acceptedFiles[0]);
   }, []);
+
+  const renderSelectedFile = () => {
+    if (fileForUpload === null) {
+      return;
+    }
+    return (
+      <div>
+        <h4>Selected File</h4>
+        <p>{fileForUpload.name}</p>
+      </div>
+    );
+  };
 
   const {
     getRootProps,
@@ -89,6 +94,7 @@ const Upload = () => {
           )}
         </div>
       </section>
+      {fileForUpload !== null && renderSelectedFile()}
       <Button disabled={fileForUpload === null} onClick={handleFileUpload}>
         Upload
       </Button>
