@@ -33,9 +33,11 @@ const rejectStyle = {
 
 const Upload = ({
   onPageChange,
+  onExtChange,
   fileId,
 }: {
   onPageChange: Function;
+  onExtChange: Function;
   fileId: string;
 }) => {
   const [fileForUpload, selectFileForUpload] = useState<any>(null);
@@ -48,6 +50,8 @@ const Upload = ({
 
     const ext = fileForUpload.name.split(".").pop();
     const storageRef = ref(storage, `unprocessed/${fileId}.${ext}`);
+
+    onExtChange(ext);
 
     await uploadBytes(storageRef, fileForUpload);
     onPageChange("loading");
@@ -105,38 +109,37 @@ const Upload = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }} >
+      exit={{ opacity: 0 }}
+    >
       <div className="upload">
         <h1>Upload A File</h1>
         <section className="container">
           <div className="drop">
-          <div {...getRootProps({ style })}>
-            <input {...getInputProps()} />
-            {isDragActive ? (
-              <p>Drop the file here ...</p>
-            ) : (
-              <p>Drag and drop a file here, or click to select a file</p>
-            )}
+            <div {...getRootProps({ style })}>
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop the file here ...</p>
+              ) : (
+                <p>Drag and drop a file here, or click to select a file</p>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {fileForUpload !== null && renderSelectedFile()}
+        {fileForUpload !== null && renderSelectedFile()}
 
-      <div className="preview">
-        {localUrl !== "" && renderImagePreview()}
+        <div className="preview">{localUrl !== "" && renderImagePreview()}</div>
+
+        <Button
+          className="button"
+          variant="outline-dark"
+          size="lg"
+          disabled={fileForUpload === null}
+          onClick={handleFileUpload}
+        >
+          Upload
+        </Button>
       </div>
-
-      <Button
-        className="button"
-        variant="outline-dark"
-        size="lg"
-        disabled={fileForUpload === null}
-        onClick={handleFileUpload}
-      >
-        Upload
-      </Button>
-    </div>
     </motion.div>
   );
 };
