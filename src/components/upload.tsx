@@ -3,6 +3,7 @@ import { ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 const baseStyle = {
   flex: 1,
@@ -100,10 +101,15 @@ const Upload = ({
   );
 
   return (
-    <div className="upload">
-      <h1>Upload A File</h1>
-      <section className="container">
-        <div className="drop">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }} >
+      <div className="upload">
+        <h1>Upload A File</h1>
+        <section className="container">
+          <div className="drop">
           <div {...getRootProps({ style })}>
             <input {...getInputProps()} />
             {isDragActive ? (
@@ -128,6 +134,7 @@ const Upload = ({
         Upload
       </Button>
     </div>
+    </motion.div>
   );
 };
 
