@@ -15,7 +15,6 @@ const Loading = ({
     Math.random() * (Math.floor(6000) - Math.ceil(2000)) + Math.ceil(2000)
   );
 
-  console.log(demoTime);
   useEffect(() => {
     setTimeout(() => setLoading(false), demoTime);
   }, []);

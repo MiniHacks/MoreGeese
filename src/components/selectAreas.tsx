@@ -48,7 +48,6 @@ const SelectAreas = ({
     setAreas(newAreas);
     await getImageMaps(newAreas);
     await getImageMaps(newAreas);
-    console.log(newAreas);
   };
 
   const getImageMaps = async (newAreas) => {
