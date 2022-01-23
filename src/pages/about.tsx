@@ -9,20 +9,30 @@ const About = () => {
           <img src="./image.svg" alt="photo" />
           <h1>What is this?</h1>
           <div className="text">
-          <p> Antidoxx is a privacy tool that detects and removes sensitive information from
-              pictures so you can share the moment without sharing too much.</p>
+            <p>
+              {" "}
+              Antidoxx is a privacy tool that detects and removes sensitive
+              information from pictures so you can share the moment without
+              sharing too much.
+            </p>
 
-          <p> Upload your image, Antidoxx will locate text and faces, allowing you to choose
-              what is removed and what remains.</p>
-
+            <p>
+              {" "}
+              Upload your image, Antidoxx will locate text and faces, allowing
+              you to choose what is removed and what remains.
+            </p>
           </div>
         </div>
         <div className="item">
-        <img className="goose" src="./goose.png" alt="lock" />
+          <img className="goose" src="./goose.png" alt="lock" />
           <h1>Who made this?</h1>
           <div className="text">
-            <p> Antidoxx is a project created for MinneHack 2022 by four nerds
-              with mixed feelings about geese: Ben, Mini, Nate, and Sasha.</p>
+            <p>
+              {" "}
+              Antidoxx is a project created for MinneHack 2022 by four nerds
+              with mixed feelings about geese: Ben, Mini,{" "}
+              <a href="https://www.n8pf.com/">Nate</a>, and Sasha.
+            </p>
           </div>
         </div>
 
@@ -30,21 +40,24 @@ const About = () => {
           <img src="./lock.svg" alt="lock" />
           <h1>What do you do with my images?</h1>
           <div className="text">
-            <p> We use a machine learning computer vision algorithm to detect text and faces in your images.
-                You then select which of the text you want to blur and we produce a new copy of your image with
-                the desired regions blurred out. </p>
-            <p> After you download your “Antidoxxed” image, we delete both the original and edited versions in order
-                to keep your privacy safe.
+            <p>
+              {" "}
+              We use a machine learning computer vision algorithm to detect text
+              and faces in your images. You then select which of the text you
+              want to blur and we produce a new copy of your image with the
+              desired regions blurred out.{" "}
             </p>
-             
+            <p>
+              {" "}
+              After you download your “Antidoxxed” image, we delete both the
+              original and edited versions in order to keep your privacy safe.
+            </p>
           </div>
         </div>
       </div>
-      <div className="item">
-
-        </div>
+      <div className="item"></div>
     </div>
-    
+
     /*
     <div className="page about">
       <div>
