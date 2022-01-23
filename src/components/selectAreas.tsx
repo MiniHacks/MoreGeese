@@ -4,6 +4,7 @@ import { ref, getDownloadURL, connectStorageEmulator } from "firebase/storage";
 import { app, storage } from "../firebase";
 import ImageMapper from "react-image-mapper";
 import { arrayBounds } from "./range_points";
+import { motion } from "framer-motion";
 import "../styles/select.css";
 
 const SelectAreas = ({
@@ -66,21 +67,33 @@ const SelectAreas = ({
   };
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5  }}
+      exit={{ opacity: 0 }}>
     <div className="selection">
       <h1>Select Parts of Your Image to Blur</h1>
-      <div className="map">
-        {Object.keys(maps).length !== 0 && (
-          <ImageMapper
-            src={imageUrl}
-            map={maps}
-            width={800}
-            imgWidth={imageWidth}
-            onClick={(area) => handleSelectArea(area)}
-          />
-        )}
-      </div>
+      <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 5 }}
+          exit={{ opacity: 0 }} >
+        <div className="map">
+          {Object.keys(maps).length !== 0 && (
+            <ImageMapper
+              src={imageUrl}
+              map={maps}
+              width={800}
+              imgWidth={imageWidth}
+              onClick={(area) => handleSelectArea(area)}
+            />
+          )}
+        </div>
+        </motion.div>
       <Button className="button" variant="outline-dark" size="lg" onClick={() => onPageChange("download")}>Done!</Button>
     </div>
+    </motion.div>
   );
 };
 
