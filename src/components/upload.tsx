@@ -3,6 +3,7 @@ import { ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 const baseStyle = {
   flex: 1,
@@ -90,27 +91,33 @@ const Upload = ({
   );
 
   return (
-    <div className="upload">
-      <h1>Upload A File</h1>
-      <section className="container">
-        <div className="drop">
-        <div {...getRootProps({ style })}>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the file here ...</p>
-          ) : (
-            <p>Drag and drop a file here, or click to select a file</p>
-          )}
-        </div>
-        </div>
-      </section>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }} >
+      <div className="upload">
+        <h1>Upload A File</h1>
+        <section className="container">
+          <div className="drop">
+          <div {...getRootProps({ style })}>
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the file here ...</p>
+            ) : (
+              <p>Drag and drop a file here, or click to select a file</p>
+            )}
+          </div>
+          </div>
+        </section>
 
-      {fileForUpload !== null && renderSelectedFile()}
+        {fileForUpload !== null && renderSelectedFile()}
 
-      <Button className="button" variant="outline-dark" size="lg" disabled={fileForUpload === null} onClick={handleFileUpload}>
-        Upload
-      </Button>
-    </div>
+        <Button className="button" variant="outline-dark" size="lg" disabled={fileForUpload === null} onClick={handleFileUpload}>
+          Upload
+        </Button>
+      </div>
+    </motion.div>
   );
 };
 
