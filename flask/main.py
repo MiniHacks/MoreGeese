@@ -36,7 +36,7 @@ def mask():
     masked[mask] = 0
 
     gray_image = cv2.cvtColor(masked, cv2.COLOR_BGR2GRAY)
-    ret, thresh = cv2.threshold(gray_image, 50, 255, cv2.THRESH_BINARY)
+    _, thresh = cv2.threshold(gray_image, 50, 255, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
     notable_contours = filter(lambda c: len(c) > 10, contours)
