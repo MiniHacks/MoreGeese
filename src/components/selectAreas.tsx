@@ -27,7 +27,7 @@ const SelectAreas = ({
   };
 
   const getImageMaps = () => {
-    const imageMap = {
+    const imageMaps = {
       name: "image-map",
       areas: arrayBounds.map((a, idx) => {
         return {
@@ -52,7 +52,7 @@ const SelectAreas = ({
         },
       ],
     };
-    setMaps(newMaps);
+    setMaps(imageMaps);
   };
 
   return (

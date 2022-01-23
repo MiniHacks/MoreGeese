@@ -28,9 +28,9 @@ const Download = ({
   };
 
   return (
-    <div>
+    <div className="download">
       <h1>Download Your Fixed Image!</h1>
-      <Button onClick={handleImageDownload}>Download!</Button>
+      <Button className="button" variant="outline-dark" size="lg" onClick={handleImageDownload}>Download!</Button>
     </div>
   );
 };

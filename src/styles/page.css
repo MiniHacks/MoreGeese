@@ -19,10 +19,15 @@ p {
     padding: 10px 10px 20px 10px;
 }
 
-img {
+.start img {
     height: 400px;
     width: 500px;
     padding: 50px 0 10px 0;
+}
+
+.select img {
+    max-width: 60%;
+    margin: 20px 40px;
 }
 
 .title {
@@ -35,8 +40,8 @@ img {
 
 /* upload part */
 
-.upload h1 {
-    padding: 50px;
+h1 {
+    padding: 40px;
 }
 
 .upload {
@@ -47,7 +52,36 @@ img {
     padding-bottom: 40px;
 }
 
-/* CHECK */
+/* FIXME - gross */
 h4 {
     padding-top: 0px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    padding: 40px 40px 60px 40px;
+}
+
+/* selection */
+
+/* animation */
+.load {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #DB490B;
+    animation: load 5s infinite;
+}
+
+@keyframes load {
+    0% {
+        transform: translateX(-100px);
+    }
+    50% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(-100px);
+    }
 }
