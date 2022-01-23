@@ -1,10 +1,12 @@
 import React from "react";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Navigation from "./components/navigation";
+
+// import "./App.css";
+import "./styles/page.css";
 
 function App() {
   return (

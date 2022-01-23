@@ -3,10 +3,10 @@ import { Button } from "react-bootstrap";
 
 const Start = ({ onPageChange }: { onPageChange: Function }) => {
   return (
-    <div>
-      <h1>Antidoxx your photos!</h1>
-      <p>Hello world, this is me typing here!</p>
-      <Button onClick={() => onPageChange("upload")}>Get Started</Button>
+    <div className="start">
+      <h1>Antidoxx Your Photos</h1>
+      <p> A way to remove identifying information from your images </p>
+      <Button variant="outline-dark" size="lg" onClick={() => onPageChange("upload")}>Get Started</Button>
     </div>
   );
 };
