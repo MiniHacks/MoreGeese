@@ -19,7 +19,10 @@ const Download = ({
   const [imageUrl, setUrl] = useState("");
 
   const getImageUrl = async () => {
-    const pathReference = ref(storage, `unprocessed/${fileId}.png`);
+    const pathReference = ref(
+      storage,
+      `processed/cbcec80b-48f9-49be-9dee-722c5281e30f.jpg`
+    );
     const url = await getDownloadURL(pathReference);
     setUrl(url);
   };
@@ -36,7 +39,7 @@ const Download = ({
       exit={{ opacity: 0 }}
     >
       <div className="download">
-        <h1>Download Your Fixed Image!</h1>
+        <h1>Download Your Antidoxxed Image!</h1>
         <Button
           className="button"
           variant="outline-dark"
