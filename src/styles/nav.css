@@ -8,6 +8,5 @@
 .nav img {
     margin: 0 20px;
     color: red;
-    filter: invert(29%) sepia(46%) saturate(4075%) hue-rotate(8deg) brightness(95%) contrast(91%);
 }
 

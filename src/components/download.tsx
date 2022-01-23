@@ -45,7 +45,7 @@ const Download = ({
         >
           Download!
         </Button>
-        <h1>Thank you for using Antidoxx!</h1>
+        <h1>Not Done Yet?</h1>
         <Button
           className="button"
           variant="outline-dark"
