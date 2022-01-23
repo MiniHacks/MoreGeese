@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { ref, getDownloadURL } from "firebase/storage";
 import { app, storage } from "../firebase";
+const downloadjs = require("downloadjs");
 
 const Download = ({
   onPageChange,
@@ -17,13 +18,7 @@ const Download = ({
   const handleImageDownload = async () => {
     const pathReference = ref(storage, `unprocessed/${fileId}.png`);
     const url = await getDownloadURL(pathReference);
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = "blob";
-    xhr.onload = (event) => {
-      const blob = xhr.response;
-    };
-    xhr.open("GET", url);
-    xhr.send();
+    downloadjs(url);
   };
 
   return (
