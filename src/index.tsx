@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
-document.title = "antidoxx";
+document.title = "Antidoxx";
 
 ReactDOM.render(
   <React.StrictMode>
