@@ -34,3 +34,8 @@
 .about p {
     padding-bottom: 0px;
 }
+
+.highlight {
+    font-weight: bolder;
+    color: rgb(235, 96, 36);
+}
