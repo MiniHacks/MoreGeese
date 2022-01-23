@@ -122,7 +122,10 @@ const Upload = ({
       </section>
 
       {fileForUpload !== null && renderSelectedFile()}
-      {localUrl !== "" && renderImagePreview()}
+
+      <div className="preview">
+        {localUrl !== "" && renderImagePreview()}
+      </div>
 
       <Button
         className="button"
