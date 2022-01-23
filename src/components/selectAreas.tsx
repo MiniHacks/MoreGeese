@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { ref, getDownloadURL, connectStorageEmulator } from "firebase/storage";
+import { ref, getDownloadURL } from "firebase/storage";
 import { app, storage } from "../firebase";
 import ImageMapper from "react-image-mapper";
 import { arrayBounds } from "./range_points";
