@@ -11,9 +11,18 @@ const About = () => {
           <div className="text">
             <p>
               {" "}
-              Antidoxx is a privacy tool that detects and removes sensitive
-              information from pictures so you can share the moment without
-              sharing too much.
+              <span className="highlight">
+                Antidoxx is a privacy tool that detects and removes sensitive
+                information
+              </span>{" "}
+              from pictures so you can share the moment without sharing too
+              much.
+            </p>
+
+            <p>
+              {" "}
+              After uploading your image, Antidoxx will locate text within the
+              image, allowing you to choose what is removed and what remains.
             </p>
 
             <p>
@@ -29,9 +38,10 @@ const About = () => {
           <div className="text">
             <p>
               {" "}
-              Antidoxx is a project created for MinneHack 2022 by four nerds
-              with mixed feelings about geese: Ben, Mini,{" "}
-              <a href="https://www.n8pf.com/">Nate</a>, and Sasha.
+              <span className="highlight">Antidoxx</span> is a project created
+              for MinneHack 2022 by four nerds with{" "}
+              <span className="highlight">mixed feelings about geese</span>:
+              Ben, Sasha, <a href="https://www.n8pf.com/">Nate</a>, and Mini.
             </p>
           </div>
         </div>
@@ -42,15 +52,21 @@ const About = () => {
           <div className="text">
             <p>
               {" "}
-              We use a machine learning computer vision algorithm to detect text
-              and faces in your images. You then select which of the text you
-              want to blur and we produce a new copy of your image with the
+              We use a{" "}
+              <span className="highlight">
+                machine learning computer vision algorithm
+              </span>{" "}
+              to detect text in your images. You then select which of the text
+              you want to blur, and we produce a new copy of your image with the
               desired regions blurred out.{" "}
             </p>
             <p>
               {" "}
-              After you download your “Antidoxxed” image, we delete both the
-              original and edited versions in order to keep your privacy safe.
+              After you download your “Antidoxxed” image,{" "}
+              <span className="highlight">
+                we delete both the original and edited versions in order to keep
+                your privacy safe.
+              </span>
             </p>
           </div>
         </div>
