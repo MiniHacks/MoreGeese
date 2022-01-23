@@ -28,9 +28,6 @@ def index():
 def mask():
     f = request.files['file']
     segments, img = segment_image(f, output_image="mask_"+f)
-
-    ids = segments["class_ids"]
-    names = segments["class_names"]
     mask = segments["masks"]
 
     # g value for signs is 5
@@ -43,17 +40,15 @@ def mask():
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
     notable_contours = filter(lambda c: len(c) > 10, contours)
-    zipped_contours = []
+    outlines = []
     for contour in notable_contours:
         c = np.squeeze(contour, axis=1)
         zipped_points = []
         for (x, y) in c:
             zipped_points.append(x)
             zipped_points.append(y)
-        zipped_contours.append(zipped_points)
-    return zipped_contours
-
-
+        outlines.append(zipped_points)
+    return outlines
 
 
 if __name__ == "__main__":
