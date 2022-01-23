@@ -18,7 +18,7 @@ from pixellib.semantic import semantic_segmentation
 
 model = "deeplabv3_xception65_ade20k.h5"
 segment_image = semantic_segmentation()
-segment_image = load_ade20k_model(model)
+segment_image.load_ade20k_model(model)
 
 @app.route("/")
 def index():
@@ -52,4 +52,4 @@ def mask():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
