@@ -52,8 +52,13 @@ h1 {
     padding: 0 25%;
 }
 
-.drop {
+.drop,
+.preview img {
     padding-bottom: 40px;
+}
+
+.preview img {
+    max-width: 600px;
 }
 
 /* FIXME - gross */
