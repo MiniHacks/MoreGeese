@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { connectStorageEmulator, ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
+const { v4: uuidv4 } = require("uuid");
 
 const baseStyle = {
   flex: 1,
@@ -38,7 +39,9 @@ const Upload = () => {
     if (fileForUpload === null) {
       return;
     }
-    const storageRef = ref(storage, "helloworld.png");
+    const fileId = uuidv4();
+    const ext = fileForUpload.name.split(".").pop();
+    const storageRef = ref(storage, `unprocessed/${fileId}.${ext}`);
 
     await uploadBytes(storageRef, fileForUpload);
   };
