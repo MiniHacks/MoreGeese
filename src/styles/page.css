@@ -35,8 +35,9 @@ img {
 
 /* upload part */
 
-.upload h1 {
-    padding: 50px;
+.upload h1,
+.loading h1 {
+    padding: 40px;
 }
 
 .upload {
@@ -47,7 +48,28 @@ img {
     padding-bottom: 40px;
 }
 
-/* CHECK */
+/* FIXME - gross */
 h4 {
     padding-top: 0px;
+}
+
+/* animation */
+.load {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #DB870B;
+    animation: load 5s infinite;
+}
+
+@keyframes load {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
