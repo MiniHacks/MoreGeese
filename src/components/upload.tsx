@@ -39,6 +39,7 @@ const Upload = ({
   fileId: string;
 }) => {
   const [fileForUpload, selectFileForUpload] = useState<any>(null);
+  const [localUrl, setUrl] = useState("");
 
   const handleFileUpload = async () => {
     if (fileForUpload === null) {
@@ -54,6 +55,8 @@ const Upload = ({
 
   const onDrop = useCallback((acceptedFiles) => {
     selectFileForUpload(acceptedFiles[0]);
+    const url = URL.createObjectURL(acceptedFiles[0]);
+    setUrl(url);
   }, []);
 
   const renderSelectedFile = () => {
@@ -66,6 +69,13 @@ const Upload = ({
         <p>{fileForUpload.name}</p>
       </div>
     );
+  };
+
+  const renderImagePreview = () => {
+    if (localUrl === "") {
+      return;
+    }
+    return <img src={localUrl} alt="preview" />;
   };
 
   const {
@@ -108,15 +118,22 @@ const Upload = ({
               <p>Drag and drop a file here, or click to select a file</p>
             )}
           </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {fileForUpload !== null && renderSelectedFile()}
+      {fileForUpload !== null && renderSelectedFile()}
+      {localUrl !== "" && renderImagePreview()}
 
-        <Button className="button" variant="outline-dark" size="lg" disabled={fileForUpload === null} onClick={handleFileUpload}>
-          Upload
-        </Button>
-      </div>
+      <Button
+        className="button"
+        variant="outline-dark"
+        size="lg"
+        disabled={fileForUpload === null}
+        onClick={handleFileUpload}
+      >
+        Upload
+      </Button>
+    </div>
     </motion.div>
   );
 };
