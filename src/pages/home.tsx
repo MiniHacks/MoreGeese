@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Start from "../components/start";
 import Upload from "../components/upload";
+import Loading from "../components/loading";
+import Download from "../components/download";
+const { v4: uuidv4 } = require("uuid");
 
 const Home = () => {
   const [page, setPage] = useState("get-started");
+  const [fileId, setId] = useState("");
+
+  useEffect(() => {
+    setId(uuidv4());
+  }, []);
 
   const handlePageChange = (pageName: string) => {
     setPage(pageName);
@@ -14,7 +22,11 @@ const Home = () => {
     case "get-started":
       return <Start onPageChange={handlePageChange} />;
     case "upload":
-      return <Upload />;
+      return <Upload onPageChange={handlePageChange} fileId={fileId} />;
+    case "loading":
+      return <Loading onPageChange={handlePageChange} />;
+    case "download":
+      return <Download onPageChange={handlePageChange} fileId={fileId} />;
     default:
       return <Start onPageChange={handlePageChange} />;
   }
