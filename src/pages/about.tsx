@@ -18,15 +18,11 @@ const About = () => {
           </div>
         </div>
         <div className="item">
-          <img src="./tool.svg" alt="tool" />
-          <h1>How is my image processed?</h1>
+        <img className="goose" src="./goose.png" alt="lock" />
+          <h1>Who made this?</h1>
           <div className="text">
-            <p> We use a machine learning computer vision algorithm to detect text in
-                your images that you might want to blur out in order to keep your
-                location private. </p>
-            <p> You then select which of the text you want to blur and
-                we produce a new copy of your image with the desired regions blurred
-                out.</p>
+            <p> Antidoxx is a project created for MinneHack 2022 by four nerds
+              with mixed feelings about geese: Ben, Mini, Nate, and Sasha.</p>
           </div>
         </div>
 
@@ -34,17 +30,18 @@ const About = () => {
           <img src="./lock.svg" alt="lock" />
           <h1>What do you do with my images?</h1>
           <div className="text">
-            <p> After you upload an image, we only process it and remove any text.</p>
-            <p> After you download the new copy, we delete both the original and edited
-                versions in order to keep your privacy safe.</p>
+            <p> We use a machine learning computer vision algorithm to detect text and faces in your images.
+                You then select which of the text you want to blur and we produce a new copy of your image with
+                the desired regions blurred out. </p>
+            <p> After you download your “Antidoxxed” image, we delete both the original and edited versions in order
+                to keep your privacy safe.
+            </p>
              
           </div>
         </div>
       </div>
       <div className="item">
-          <img className="goose" src="./goose.png" alt="goose" />
-          <h1>Who made this?</h1>
-          <div className="text">People who have mixed feelings about geese</div>
+
         </div>
     </div>
     
@@ -66,10 +63,7 @@ const About = () => {
           We use a machine learning computer vision algorithm to detect text in
           your images that you might want to blur out in order to keep your
           location private. You then select which of the text you want to blur
-          and we produce a new copy of your image with the desired regions
-          blurred out.
-        </p>
-      </div>
+          and we produce a new copy of your image with the desired r.
       <div className="item">
         <h1>What do you do with my images?</h1>
         <p>
