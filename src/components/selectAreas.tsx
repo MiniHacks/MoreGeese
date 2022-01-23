@@ -99,7 +99,7 @@ const SelectAreas = ({
           className="button"
           variant="outline-dark"
           size="lg"
-          onClick={() => onPageChange("download")}
+          onClick={() => onPageChange("loading", false)}
         >
           Done!
         </Button>
