@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import Start from "../components/start";
 import Upload from "../components/upload";
 import Loading from "../components/loading";
+import SelectAreas from "../components/selectAreas";
 import Download from "../components/download";
 const { v4: uuidv4 } = require("uuid");
 
@@ -25,6 +26,8 @@ const Home = () => {
       return <Upload onPageChange={handlePageChange} fileId={fileId} />;
     case "loading":
       return <Loading onPageChange={handlePageChange} />;
+    case "select-areas":
+      return <SelectAreas onPageChange={handlePageChange} fileId={fileId} />;
     case "download":
       return <Download onPageChange={handlePageChange} fileId={fileId} />;
     default:
