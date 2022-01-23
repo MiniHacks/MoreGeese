@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans&display=swap');
+
+/* FIXME - font sizes currently in em, might switch to px if it sucks */
+
+body {
+    font-family: 'IBM Plex Sans', Helvetica, monospace;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'IBM Plex Mono', Times, sans-serif;
+    padding: 50px 20px 10px 20px;
+    font-size: 2em;
+    color: #DB490B;
+}
+
+p {
+    padding: 10px;
+}
+
+
+/* FIXME make less redundant later */
+.start Button {
+    
+}

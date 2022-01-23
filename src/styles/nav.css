@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans&display=swap');
+
+.nav {
+    font-family: 'IBM Plex Mono', Times, sans-serif;
+    color: #DB490B !important;
+}
