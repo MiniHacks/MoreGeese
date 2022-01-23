@@ -3,9 +3,9 @@ import { Button } from "react-bootstrap";
 
 const Loading = ({ onPageChange }: { onPageChange: Function }) => {
   return (
-    <div className="loading">
-      <h1>Detecting Funky Image Text...</h1>
-      <Button className="button" variant="outline-dark" size="lg" onClick={() => onPageChange("download")}>Go To Downloads</Button>
+    <div>
+      <h1>Please wait while your image loads!</h1>
+      <Button onClick={() => onPageChange("select-areas")}>Go To Select</Button>
     </div>
   );
 };
