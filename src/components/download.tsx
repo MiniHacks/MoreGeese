@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { ref, getDownloadURL } from "firebase/storage";
-import { app, storage } from "../firebase";
+import { storage } from "../firebase";
 import { motion } from "framer-motion";
 const downloadjs = require("downloadjs");
 
@@ -48,7 +48,14 @@ const Download = ({
       <div className="download">
         <h1>Download Your Antidoxxed Image!</h1>
 
-        <div className="preview">{imageUrl !== "" && renderImagePreview()}</div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="preview">{imageUrl !== "" && renderImagePreview()}</div>
+        </motion.div>
 
         <Button
           className="button"
