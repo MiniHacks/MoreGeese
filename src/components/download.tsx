@@ -16,6 +16,13 @@ const Download = ({
     getImageUrl();
   }, []);
 
+  const renderImagePreview = () => {
+    if (imageUrl === "") {
+      return;
+    }
+    return <img src={imageUrl} alt="preview" />;
+  };
+
   const [imageUrl, setUrl] = useState("");
 
   const getImageUrl = async () => {
@@ -40,6 +47,9 @@ const Download = ({
     >
       <div className="download">
         <h1>Download Your Antidoxxed Image!</h1>
+
+        <div className="preview">{imageUrl !== "" && renderImagePreview()}</div>
+
         <Button
           className="button"
           variant="outline-dark"
