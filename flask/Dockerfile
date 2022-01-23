@@ -1,12 +1,21 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.8-slim-buster
+FROM gcr.io/google-appengine/python
 
-WORKDIR /app
+COPY ["deeplabv3_xception65_ade20k.h5", "/"]
+COPY ["main.py", "/"]
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip install tensorflow==2.7.0 && \
+pip install opencv-python==4.5.5.62 && \
+pip install scikit-image==0.18.3 && \
+pip install Pillow==9.0.0 && \
+pip install pixellib==0.7.1 && \
+pip install Flask==1.1.4 && \
+pip install numpy 
 
-COPY . .
+EXPOSE 5000
+EXPOSE 8080
+EXPOSE 8000
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "python3", "main.py", "--host=0.0.0.0"]
