@@ -10,25 +10,24 @@ const baseStyle = {
   alignItems: "center",
   padding: "20px",
   borderWidth: 2,
-  borderRadius: 2,
   borderColor: "#eeeeee",
-  borderStyle: "dashed",
+  borderStyle: "none",
   backgroundColor: "#fafafa",
   color: "#bdbdbd",
-  outline: "none",
+  outline: "solid",
   transition: "border .24s ease-in-out",
 };
 
 const focusedStyle = {
-  borderColor: "#2196f3",
+  borderColor: "#F26D00",
 };
 
 const acceptStyle = {
-  borderColor: "#00e676",
+  borderColor: "#DB490B",
 };
 
 const rejectStyle = {
-  borderColor: "#ff1744",
+  borderColor: "#FA2602",
 };
 
 const Upload = ({
@@ -92,15 +91,15 @@ const Upload = ({
 
   return (
     <div className="upload">
-      <h1>Upload Files</h1>
+      <h1>Upload A File</h1>
       <section className="container">
         <div className="drop">
         <div {...getRootProps({ style })}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p>Drop the files here ...</p>
+            <p>Drop the file here ...</p>
           ) : (
-            <p>Drag and drop some files here, or click to select files</p>
+            <p>Drag and drop a file here, or click to select a file</p>
           )}
         </div>
         </div>
