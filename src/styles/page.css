@@ -15,9 +15,11 @@ h1, h2, h3, h4, h5 {
     color: #DB490B;
 }
 
+
 p {
     padding: 10px 10px 20px 10px;
 }
+
 
 .start img {
     height: 400px;
@@ -40,7 +42,7 @@ p {
 
 /* upload part */
 
-h1 {
+.upload h1 {
     padding: 40px;
 }
 
@@ -72,14 +74,16 @@ h4 {
     padding: 40px 40px 60px 40px;
 }
 
-/* selection */
+.download h1 {
+    padding-bottom: 20px;
+}
 
 /* animation */
 .load {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #DB490B;
+    background-color: #EAB034;
     animation: load 5s infinite;
 }
 

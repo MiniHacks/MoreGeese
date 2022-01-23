@@ -10,12 +10,12 @@ const Navigation = () => {
         <Navbar.Brand className="logo" as={Link} to="/">
           <img
             alt="cool logo placeholder"
-            src="./logo.svg"
+            src="./logo.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
           />
-           Antidoxx
+          Antidoxx
         </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link as={NavLink} to="/"> Home </Nav.Link>
