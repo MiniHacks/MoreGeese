@@ -1,0 +1,7 @@
+tensorflow==2.7.0
+opencv-python==4.5.5.62
+scikit-image==0.18.3
+Pillow==9.0.0
+pixellib==0.7.1
+Flask==1.1.4
+numpy 
