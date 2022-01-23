@@ -10,9 +10,11 @@ import "../styles/select.css";
 const SelectAreas = ({
   onPageChange,
   fileId,
+  extension,
 }: {
   onPageChange: Function;
   fileId: string;
+  extension;
 }) => {
   useEffect(() => {
     getImageToEdit();
@@ -25,7 +27,7 @@ const SelectAreas = ({
   const [selectedAreas, setAreas] = useState([]);
 
   const getImageToEdit = async () => {
-    const pathReference = ref(storage, `unprocessed/${fileId}.png`);
+    const pathReference = ref(storage, `unprocessed/${fileId}.${extension}`);
     const url = await getDownloadURL(pathReference);
     setUrl(url);
     const img = new Image();
@@ -70,29 +72,38 @@ const SelectAreas = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5  }}
-      exit={{ opacity: 0 }}>
-    <div className="selection">
-      <h1>Select Parts of Your Image to Blur</h1>
-      <motion.div
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="selection">
+        <h1>Select Parts of Your Image to Blur</h1>
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 5 }}
-          exit={{ opacity: 0 }} >
-        <div className="map">
-          {Object.keys(maps).length !== 0 && (
-            <ImageMapper
-              src={imageUrl}
-              map={maps}
-              width={800}
-              imgWidth={imageWidth}
-              onClick={(area) => handleSelectArea(area)}
-            />
-          )}
-        </div>
+          exit={{ opacity: 0 }}
+        >
+          <div className="map">
+            {Object.keys(maps).length !== 0 && (
+              <ImageMapper
+                src={imageUrl}
+                map={maps}
+                width={800}
+                imgWidth={imageWidth}
+                onClick={(area) => handleSelectArea(area)}
+              />
+            )}
+          </div>
         </motion.div>
-      <Button className="button" variant="outline-dark" size="lg" onClick={() => onPageChange("download")}>Done!</Button>
-    </div>
+        <Button
+          className="button"
+          variant="outline-dark"
+          size="lg"
+          onClick={() => onPageChange("download")}
+        >
+          Done!
+        </Button>
+      </div>
     </motion.div>
   );
 };
