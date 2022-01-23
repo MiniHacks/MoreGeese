@@ -55,7 +55,7 @@ function App() {
   return (
     <div>
       <Navigation />
-      < AnimateRoutes />
+      <AnimateRoutes />
     </div>
   );
 }
