@@ -24,11 +24,11 @@ const SelectAreas = ({
   };
 
   return (
-    <div>
-      <h1>Select of Your Image to Blur</h1>
+    <div className="select">
+      <h1>Select Parts of Your Image to Blur</h1>
       <img alt="img-to-edit" id="image-to-edit" />
       <br />
-      <Button onClick={() => onPageChange("download")}>Done!</Button>
+      <Button className="button" variant="outline-dark" size="lg" onClick={() => onPageChange("download")}>Done!</Button>
     </div>
   );
 };
