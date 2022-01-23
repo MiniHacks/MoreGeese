@@ -1,36 +1,61 @@
-import React from "react";
+import React, { FC } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Navigation from "./components/navigation";
 
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { AnimatePresence, motion } from "framer-motion";
 
 // import "./App.css";
 import "./styles/page.css";
 import "./styles/fade.css"
 
-function App() {
-  let location = useLocation();
+// does funky transition
+export const Animate: FC = () => {
   return (
-    <div className="App">
-      <Navigation />
+    <motion.div
+      animate="in"
+      initial="initial"
+      exit="out"
+      variants={{
+        initial: { opacity: 0 },
+        in: { opacity: 1 },
+        out: { opacity: 0 }
+      }}
+      transition={{
+        type: "spring",
+        damping: 10,
+        stiffness: 40
+      }}
+    >
+      <Outlet />
+    </motion.div>
+  );
+};
 
-      <TransitionGroup component={null}>
-        <CSSTransition
-          timeout={1000}
-          classNames="fade"
-          key={location.key}
-          appear
-        >
-          <Routes location={location}>
+export const AnimateRoutes: FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <Routes location={location} key={location.pathname}>
+        <Route element={<Animate />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-          </Routes>
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
-        </CSSTransition>
-      </TransitionGroup>
+
+function App() {
+  return (
+    <div>
+      <Navigation />
+      < AnimateRoutes />
     </div>
   );
 }
