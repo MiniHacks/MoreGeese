@@ -30,7 +30,23 @@ const Download = ({
   return (
     <div className="download">
       <h1>Download Your Fixed Image!</h1>
-      <Button className="button" variant="outline-dark" size="lg" onClick={handleImageDownload}>Download!</Button>
+      <Button
+        className="button"
+        variant="outline-dark"
+        size="lg"
+        onClick={handleImageDownload}
+      >
+        Download!
+      </Button>
+      <h1>Thank you for using Antidoxx!</h1>
+      <Button
+        className="button"
+        variant="outline-dark"
+        size="lg"
+        onClick={() => onPageChange("getting-started")}
+      >
+        Antidoxx Another Image
+      </Button>
     </div>
   );
 };
