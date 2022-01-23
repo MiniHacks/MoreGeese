@@ -85,10 +85,11 @@ const Upload = () => {
   );
 
   return (
-    <div>
+    <div className="upload">
       <h1>Upload Files</h1>
       <section className="container">
-        <div {...getRootProps({ className: "dropzone", style })}>
+        <div className="drop">
+        <div {...getRootProps({ style })}>
           <input {...getInputProps()} />
           {isDragActive ? (
             <p>Drop the files here ...</p>
@@ -96,9 +97,12 @@ const Upload = () => {
             <p>Drag and drop some files here, or click to select files</p>
           )}
         </div>
+        </div>
       </section>
+
       {fileForUpload !== null && renderSelectedFile()}
-      <Button disabled={fileForUpload === null} onClick={handleFileUpload}>
+
+      <Button className="button" variant="outline-dark" size="lg" disabled={fileForUpload === null} onClick={handleFileUpload}>
         Upload
       </Button>
     </div>
