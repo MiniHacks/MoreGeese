@@ -28,7 +28,7 @@ const Home = () => {
 
   switch (page) {
     case "get-started":
-      return <Start onPageChange={handlePageChange} />;
+      return <Start onPageChange={handlePageChange}/>;
     case "upload":
       return (
         <Upload
@@ -50,7 +50,7 @@ const Home = () => {
     case "download":
       return <Download onPageChange={handlePageChange} fileId={fileId} />;
     default:
-      return <Start onPageChange={handlePageChange} />;
+      return <Start onPageChange={handlePageChange}/>;
   }
 };
 
