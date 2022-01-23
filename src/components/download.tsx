@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { ref, getDownloadURL } from "firebase/storage";
 import { app, storage } from "../firebase";
@@ -12,13 +12,19 @@ const Download = ({
   fileId: string;
 }) => {
   useEffect(() => {
-    console.log(fileId);
+    getImageUrl();
   }, []);
 
-  const handleImageDownload = async () => {
+  const [imageUrl, setUrl] = useState("");
+
+  const getImageUrl = async () => {
     const pathReference = ref(storage, `unprocessed/${fileId}.png`);
     const url = await getDownloadURL(pathReference);
-    downloadjs(url);
+    setUrl(url);
+  };
+
+  const handleImageDownload = async () => {
+    downloadjs(imageUrl);
   };
 
   return (
