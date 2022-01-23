@@ -5,7 +5,6 @@ const About = () => {
   return (
     <div className="page about">
       <div>
-        <h1>Hello!</h1>
         <h2>What is this?</h2>
         <p>
           A tool to help protect the privacy of anyone that uses an image
