@@ -10,17 +10,44 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: 'IBM Plex Mono', Times, sans-serif;
-    padding: 50px 20px 10px 20px;
+    padding: 30px 20px 10px 20px;
     font-size: 2em;
     color: #DB490B;
 }
 
 p {
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
 }
 
+img {
+    height: 400px;
+    width: 500px;
+    padding: 50px 0 10px 0;
+}
 
-/* FIXME make less redundant later */
-.start Button {
-    
+.title {
+    font-size: 3em;
+}
+
+.button {
+    border-radius: 0 !important;
+}
+
+/* upload part */
+
+.upload h1 {
+    padding: 50px;
+}
+
+.upload {
+    padding: 0 25%;
+}
+
+.drop {
+    padding-bottom: 40px;
+}
+
+/* CHECK */
+h4 {
+    padding-top: 0px;
 }
