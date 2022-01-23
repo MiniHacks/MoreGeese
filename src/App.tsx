@@ -27,7 +27,6 @@ export const AnimateRoutes: FC = () => {
   );
 };
 
-
 function App() {
   return (
     <div>

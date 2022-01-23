@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import Start from "../components/start";
 import Upload from "../components/upload";
 import Loading from "../components/loading";
@@ -18,7 +17,7 @@ const Home = () => {
   const handlePageChange = (pageName: string) => {
     setPage(pageName);
   };
-
+  
   switch (page) {
     case "get-started":
       return <Start onPageChange={handlePageChange} />;

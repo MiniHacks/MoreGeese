@@ -4,6 +4,7 @@ import { ref, getDownloadURL, connectStorageEmulator } from "firebase/storage";
 import { app, storage } from "../firebase";
 import ImageMapper from "react-image-mapper";
 import { arrayBounds } from "./range_points";
+import "../styles/select.css";
 
 const SelectAreas = ({
   onPageChange,
@@ -51,13 +52,13 @@ const SelectAreas = ({
     const imageMaps = {
       name: "image-map",
       areas: arrayBounds.map((a, idx) => {
-        const color: string = newAreas.indexOf(idx) > -1 ? "#f57e76" : "green";
+        const color: string = newAreas.indexOf(idx) > -1 ? "#DB490B" : "cyan";
         return {
           name: idx,
           shape: "poly",
           coords: a,
           preFillColor: color,
-          fillColor: "blue",
+          fillColor: "white",
         };
       }),
     };
@@ -65,18 +66,20 @@ const SelectAreas = ({
   };
 
   return (
-    <div>
+    <div className="selection">
       <h1>Select Parts of Your Image to Blur</h1>
-      {Object.keys(maps).length !== 0 && (
-        <ImageMapper
-          src={imageUrl}
-          map={maps}
-          width={800}
-          imgWidth={imageWidth}
-          onClick={(area) => handleSelectArea(area)}
-        />
-      )}
-      <Button onClick={() => onPageChange("download")}>Done!</Button>
+      <div className="map">
+        {Object.keys(maps).length !== 0 && (
+          <ImageMapper
+            src={imageUrl}
+            map={maps}
+            width={800}
+            imgWidth={imageWidth}
+            onClick={(area) => handleSelectArea(area)}
+          />
+        )}
+      </div>
+      <Button className="button" variant="outline-dark" size="lg" onClick={() => onPageChange("download")}>Done!</Button>
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    padding-bottom: 40px;
+}
+
+
+
