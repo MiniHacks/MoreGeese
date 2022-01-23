@@ -40,16 +40,25 @@ p {
 
 /* upload part */
 
-h1 {
+.upload h1 {
     padding: 40px;
+}
+
+.title {
+    padding-bottom: 10px;
 }
 
 .upload {
     padding: 0 25%;
 }
 
-.drop {
+.drop,
+.preview img {
     padding-bottom: 40px;
+}
+
+.preview img {
+    max-width: 600px;
 }
 
 /* FIXME - gross */
@@ -63,14 +72,16 @@ h4 {
     padding: 40px 40px 60px 40px;
 }
 
-/* selection */
+.download h1 {
+    padding-bottom: 20px;
+}
 
 /* animation */
 .load {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #DB490B;
+    background-color: #EAB034;
     animation: load 5s infinite;
 }
 

@@ -1,0 +1,41 @@
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.about img {
+    width: 50px;
+}
+  
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+}
+
+.item {
+    max-width: 350px;
+}
+
+.item h1 {
+    padding: 30px 0 20px 0;
+}
+
+.about .goose {
+    padding-top: 50px;
+    width: 200px;
+}
+
+.about p {
+    padding-bottom: 0px;
+}
+
+.highlight {
+    font-weight: bolder;
+    color: rgb(235, 96, 36);
+}

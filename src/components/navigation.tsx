@@ -7,7 +7,14 @@ const Navigation = () => {
   return (
     <Navbar className="nav" bg="light" variant="light">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand className="logo" as={Link} to="/">
+          <img
+            alt="cool logo placeholder"
+            src="./logo.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />
           Antidoxx
         </Navbar.Brand>
         <Nav className="me-auto">

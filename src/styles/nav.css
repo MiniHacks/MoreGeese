@@ -4,3 +4,9 @@
     font-family: 'IBM Plex Mono', Times, sans-serif;
     color: #DB490B !important;
 }
+
+.nav img {
+    margin: 0 20px;
+    color: red;
+}
+

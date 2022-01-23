@@ -3,6 +3,7 @@ import { ref, uploadBytes } from "firebase/storage";
 import { app, storage } from "../firebase";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 const baseStyle = {
   flex: 1,
@@ -32,12 +33,15 @@ const rejectStyle = {
 
 const Upload = ({
   onPageChange,
+  onExtChange,
   fileId,
 }: {
   onPageChange: Function;
+  onExtChange: Function;
   fileId: string;
 }) => {
   const [fileForUpload, selectFileForUpload] = useState<any>(null);
+  const [localUrl, setUrl] = useState("");
 
   const handleFileUpload = async () => {
     if (fileForUpload === null) {
@@ -47,12 +51,16 @@ const Upload = ({
     const ext = fileForUpload.name.split(".").pop();
     const storageRef = ref(storage, `unprocessed/${fileId}.${ext}`);
 
+    onExtChange(ext);
+
     await uploadBytes(storageRef, fileForUpload);
-    onPageChange("loading");
+    onPageChange("loading", true);
   };
 
   const onDrop = useCallback((acceptedFiles) => {
     selectFileForUpload(acceptedFiles[0]);
+    const url = URL.createObjectURL(acceptedFiles[0]);
+    setUrl(url);
   }, []);
 
   const renderSelectedFile = () => {
@@ -67,6 +75,13 @@ const Upload = ({
     );
   };
 
+  const renderImagePreview = () => {
+    if (localUrl === "") {
+      return;
+    }
+    return <img src={localUrl} alt="preview" />;
+  };
+
   const {
     getRootProps,
     getInputProps,
@@ -76,7 +91,7 @@ const Upload = ({
     isDragActive,
   } = useDropzone({
     onDrop,
-    accept: "image/png",
+    accept: "image/*",
   });
 
   const style = useMemo(
@@ -90,27 +105,42 @@ const Upload = ({
   );
 
   return (
-    <div className="upload">
-      <h1>Upload A File</h1>
-      <section className="container">
-        <div className="drop">
-        <div {...getRootProps({ style })}>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the file here ...</p>
-          ) : (
-            <p>Drag and drop a file here, or click to select a file</p>
-          )}
-        </div>
-        </div>
-      </section>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="upload">
+        <h1>Upload A File</h1>
+        <section className="container">
+          <div className="drop">
+            <div {...getRootProps({ style })}>
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop the file here ...</p>
+              ) : (
+                <p>Drag and drop a file here, or click to select a file</p>
+              )}
+            </div>
+          </div>
+        </section>
 
-      {fileForUpload !== null && renderSelectedFile()}
+        {fileForUpload !== null && renderSelectedFile()}
 
-      <Button className="button" variant="outline-dark" size="lg" disabled={fileForUpload === null} onClick={handleFileUpload}>
-        Upload
-      </Button>
-    </div>
+        <div className="preview">{localUrl !== "" && renderImagePreview()}</div>
+
+        <Button
+          className="button"
+          variant="outline-dark"
+          size="lg"
+          disabled={fileForUpload === null}
+          onClick={handleFileUpload}
+        >
+          Upload
+        </Button>
+      </div>
+    </motion.div>
   );
 };
 
