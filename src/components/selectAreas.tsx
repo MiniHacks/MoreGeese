@@ -48,7 +48,6 @@ const SelectAreas = ({
     setAreas(newAreas);
     await getImageMaps(newAreas);
     await getImageMaps(newAreas);
-    console.log(newAreas);
   };
 
   const getImageMaps = async (newAreas) => {
@@ -99,7 +98,7 @@ const SelectAreas = ({
           className="button"
           variant="outline-dark"
           size="lg"
-          onClick={() => onPageChange("download")}
+          onClick={() => onPageChange("loading", false)}
         >
           Done!
         </Button>

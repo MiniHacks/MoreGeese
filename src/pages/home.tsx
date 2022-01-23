@@ -10,13 +10,15 @@ const Home = () => {
   const [page, setPage] = useState("get-started");
   const [fileId, setId] = useState("");
   const [ext, setExt] = useState("");
+  const [up, setUpload] = useState(true);
 
   useEffect(() => {
     setId(uuidv4());
   }, []);
 
-  const handlePageChange = (pageName: string) => {
+  const handlePageChange = (pageName: string, upload: boolean = true) => {
     setPage(pageName);
+    setUpload(upload);
   };
 
   const handleExtChange = (extension: string) => {
@@ -35,7 +37,7 @@ const Home = () => {
         />
       );
     case "loading":
-      return <Loading onPageChange={handlePageChange} />;
+      return <Loading onPageChange={handlePageChange} upload={up} />;
     case "select-areas":
       return (
         <SelectAreas
